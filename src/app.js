@@ -4,9 +4,12 @@ const koaBody = require('koa-body')
 const router = require('./controllers')
 const app = new Koa()
 const logger = require('./config/logger')
+// middleware
+const responseMiddleware = require('./middlewares/responseMiddleware')
 
 app.use(cors())
 app.use(koaBody({ formLimit: '5mb', multipart: true }))
+app.use(responseMiddleware)
 app.use(router.routes())
 
 app.on('error', (error, ctx) => {
