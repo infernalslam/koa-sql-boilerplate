@@ -1,7 +1,7 @@
 const logger = require('./src/config/logger')
 const app = require('./src/app')
 const env = process.env.NODE_ENV || 'local'
-const port = process.env.PORT || 5005
+const port = process.env.PORT || 3000
 app.listen(port)
 
 logger.log('info', `Environment: ${env}`)
